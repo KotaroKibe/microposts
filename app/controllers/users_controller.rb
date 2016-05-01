@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action:logged_in_user, only:[:edit, :update]
     
   def show
     @user = User.find(params[:id])
@@ -24,6 +25,13 @@ class UsersController < ApplicationController
   end
   
   def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else 
+      render 'edit'
+    end
   end
   
   def following
@@ -40,11 +48,19 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
-  
   private
   
   def user_params
     params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+                                 :password_confirmation, :profile, :area)
   end
+  
+  def logged_in_user
+    @user = User.find(params[:id])
+    if @user != current_user
+    flash[:danger] = "Please log in!"
+    redirect_to login_url
+    end
+  end
+  
 end
