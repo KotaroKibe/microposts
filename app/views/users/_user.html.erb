@@ -2,10 +2,10 @@
  <% if @users.any? %>
   <div class="users follow">
     <% @users.each do |user| %>
-    <%= link_to gravatar_for(user, size:100), user %>
-    <%= link_to user.name, user %></br>
-    <%= link_to "view my profile", user %></br>
-    Microposts:<%= user.microposts.count %>
+     <%= link_to gravatar_for(user, size:100), user %>
+     <%= link_to user.name, user %></br>
+     <%= link_to "view my profile", user %></br>
+     Microposts:<%= user.microposts.count %></br></br></br></br>
     <% end %> 
   </div>
  <% end %>   
