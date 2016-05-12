@@ -7,6 +7,29 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+          
+    models:
+      user: ユーザー
+    
+    attributes:  
+     user:
+      name: 名前
+      email: メールアドレス
+      following: フォロー
+      followers: フォロワー
+      
+     relationship:
+      follower: フォロー
+      followed: フォロワー
+      
+     microposts:
+      post: 投稿
+      
+  　static_pages:
+      home:
+       Micropost Feed: "マイクロポスト一覧"
+          
+          
   date:
     abbr_day_names:
     - 日
@@ -202,19 +225,4 @@ ja:
     pm: 午後
 
 
-    models:
-      user: ユーザー
     
-    attributes:  
-     user:
-      name: 名前
-      email: メールアドレス
-      following: フォロー
-      followers: フォロワー
-      
-     relationship:
-      follower: フォロー
-      followed: フォロワー
-      
-     microposts:
-      post: 投稿
