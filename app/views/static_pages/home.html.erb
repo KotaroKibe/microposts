@@ -1,4 +1,5 @@
 
+
 <% if logged_in? %>
  <div class="row">
      <aside class="col-md-4">
@@ -8,6 +9,7 @@
          <section class="stats">
           <%= render 'shared/stats' %>
          </section>
+
          <section class="micropost_form">
              <%= render 'shared/micropost_form' %>
          </section>
@@ -21,6 +23,6 @@
  <div class="center jumbotron">
      <h1>Welcome to the Microposts</h1>
      
-     <%= link_to "Sign up now!", signup_path, class:"btn btn-lg btn-primary" %>
+     <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
  </div>
 <% end %> 
